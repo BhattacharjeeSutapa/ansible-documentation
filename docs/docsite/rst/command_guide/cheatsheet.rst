@@ -118,7 +118,91 @@ ansible-doc
 
 * Show available plugins:
 
-.. code-block:: bash
-
-  ansible-doc -t module -l
+ls
   #...
+
+ansible-config
+==============
+The ansible-config command in Ansible is used to view or modify Ansible configuration settings. 
+
+- .. code-block:: bash
+
+* Actions and their common options
+
+  list 
+- ``-f`` - Output format for list.
+- ``-c`` - path to configuration file, defaults to first file found in precedence.
+- ``-t`` - Filter down to a specific plugin type.
+
+  dump 
+- ``-f`` - Output format for dump.
+- ``-c`` - path to configuration file, defaults to first file found in precedence.
+- ``-t`` - Filter down to a specific plugin type.
+- ``-only-changed`` - Only show configurations that have changed from the default.
+
+
+  view 
+- ``-c`` - path to configuration file, defaults to first file found in precedence.
+- ``-t`` - Filter down to a specific plugin type.
+
+  int
+- ``-f`` - Output format for int.
+- ``-c`` - path to configuration file, defaults to first file found in precedence.
+- ``-t`` - Filter down to a specific plugin type.
+- ``-disabled`` - Prefixes all entries with a comment character to disable them.
+
+ls
+..#
+
+ansible-vault
+=============
+The ansible-vault command is a utility provided by Ansible for encrypting sensitive data files.It's particularly useful for securing sensitive information such as passwords,API keys,and other confidential data within your Ansible projects.
+
+- .. code-block:: bash
+
+* File formats
+
+  Create Encrypted File: To create a new encrypted file or edit an existing one, use the ansible-vault create or ansible-vault edit command:
+
+- ``ansible-vault create secret.yml`` 
+- ``ansible-vault edit secret.yml`` 
+
+When you run these commands, Ansible will prompt you to set and confirm a password for encrypting the file.
+
+
+  Encrypt an Existing File: Encrypt an existing plaintext file using ansible-vault encrypt:
+
+- ``ansible-vault encrypt secret.yml``
+
+This will encrypt secret.yml and prompt you for a password.
+
+
+  View Encrypted File: To view the contents of an encrypted file without editing it, use ansible-vault view:
+
+- ``ansible-vault view secret.yml`` 
+
+You will need to provide the password to decrypt and view the file.
+
+
+  Decrypt Encrypted File: To decrypt an encrypted file temporarily and edit it, use ansible-vault decrypt:
+
+- ``ansible-vault decrypt secret.yml`` 
+
+After editing, re-encrypt the file using ansible-vault encrypt.
+
+
+  Rekey Encrypted File: Change the password used to encrypt a file with ansible-vault rekey:
+
+- ``ansible-vault rekey secret.yml`` 
+
+You will be prompted for the current password and asked to set a new one.
+
+
+  Encrypt String: Encrypt a string directly from the command line with ansible-vault encrypt_string:
+
+- ``ansible-vault encrypt_string 'my_secret_password' --name 'my_password'`` 
+
+This will output an encrypted string that you can directly use in your playbooks.
+
+
+  These are some of the most common uses of the ansible-vault command. It's crucial for securely managing sensitive information in Ansible projects.
