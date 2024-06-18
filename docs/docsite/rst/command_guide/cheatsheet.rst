@@ -162,8 +162,8 @@ Create encrypted file: To create a new encrypted file or edit an existing one, u
 
  .. code-block:: bash
 
- ``ansible-vault create secret.yml`` 
- ``ansible-vault edit secret.yml``
+- ``ansible-vault create secret.yml`` 
+- ``ansible-vault edit secret.yml``
 
 When you run these commands, Ansible will prompt you to set and confirm a password for encrypting the file.
 
