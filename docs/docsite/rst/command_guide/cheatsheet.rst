@@ -158,14 +158,12 @@ ansible-vault
 =============
 The ansible-vault command is a utility provided by Ansible for encrypting sensitive data files.It's particularly useful for securing sensitive information such as passwords,API keys,and other confidential data within your Ansible projects.
 
-- .. code-block:: bash
+Create encrypted file: To create a new encrypted file or edit an existing one, use the ansible-vault create or ansible-vault edit command:
 
-* File formats
-
-  Create Encrypted File: To create a new encrypted file or edit an existing one, use the ansible-vault create or ansible-vault edit command:
+ .. code-block:: bash
 
 - ``ansible-vault create secret.yml`` 
-- ``ansible-vault edit secret.yml`` 
+- ``ansible-vault edit secret.yml``
 
 When you run these commands, Ansible will prompt you to set and confirm a password for encrypting the file.
 
